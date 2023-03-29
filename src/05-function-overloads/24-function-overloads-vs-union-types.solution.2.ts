@@ -1,6 +1,10 @@
 import { expect, it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
+/*
+  Return type never changes so we can use a union instead of having to
+  function overload! :D
+*/
 function runGenerator(generator: { run: () => string } | (() => string)) {
   if (typeof generator === "function") {
     return generator();
