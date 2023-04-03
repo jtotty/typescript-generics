@@ -1,8 +1,7 @@
 import { expect, it } from "vitest";
 import { Equal, Expect } from "../helpers/type-utils";
 
-const makeFormValidatorFactory =
-  <TValidatorKeys extends string>(
+const makeFormValidatorFactory = <TValidatorKeys extends string>(
     validators: Record<TValidatorKeys, (value: string) => string | void>
   ) =>
   <TObjKeys extends string>(

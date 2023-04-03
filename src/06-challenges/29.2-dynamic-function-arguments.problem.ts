@@ -8,8 +8,13 @@ interface Events {
   focus: undefined;
 }
 
-export const sendEvent = (event: keyof Events, ...args: any[]) => {
-  // Send the event somewhere!
+export const sendEvent = <TEventKey extends keyof Events>(
+  event: TEventKey,
+  ...args: Events[TEventKey] extends undefined
+    ? []
+    : [payload: Events[TEventKey]]
+) => {
+  // Send the event somewhere
 };
 
 it("Should force you to pass a second argument when you choose an event with a payload", () => {
